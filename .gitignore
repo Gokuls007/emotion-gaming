@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env
+
+# Detection Outputs/Temps
+temp_capture.jpg
+*.tmp
+
+# DeepFace Models & Weights (Large files - instruction in README on how to fetch)
+# These are often stored in ~/.deepface but can also appear in project folders if moved.
+*.h5
+*.json
+!model_gray.json
+!model_gray_weights.h5
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
