@@ -86,7 +86,7 @@ The `emotion_game_unity.py` script broadcasts a JSON payload to `127.0.0.1:5065`
   "timestamp": 1618512345.0
 }
 ```
-You can import this into Unity using a standard UDP receiver script to control any game object or scene property.
+Ready-made Unity scripts are in [`unity/`](unity/README.md): `EmotionReceiver.cs` (UDP listener) and `EmotionGameReactor.cs` (example on-screen status, mood light and difficulty). Copy them into your Unity project's `Assets/` folder and follow the setup steps there.
 
 ---
 
