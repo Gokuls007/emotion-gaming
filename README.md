@@ -17,7 +17,7 @@ The **Emotion Gaming System** is a real-time computer vision platform that bridg
 ## 🛠️ Installation & Setup
 
 ### 1. Prerequisites
-- Python 3.9+
+- Python 3.9-3.13 (TensorFlow does not support Python 3.14 yet)
 - A functional webcam
 - (Optional) Unity Editor for the Gaming Edition
 
@@ -31,6 +31,15 @@ python -m venv venv
 
 # Install dependencies
 pip install -r requirements.txt
+```
+
+> **Note:** keep OpenCV below 5 (`requirements.txt` pins `opencv-python<5`). OpenCV 5 removed
+> `cv2.CascadeClassifier` and the bundled Haar cascades, which breaks face detection here.
+
+#### Custom CNN scripts
+`emotion_game_cnn.py`, `realtimedetection.py` and `application.py` use a model you train yourself:
+```bash
+python train_emotion_cnn.py   # reads train/ and test/, saves emotion_cnn.h5
 ```
 
 ### 3. Execution

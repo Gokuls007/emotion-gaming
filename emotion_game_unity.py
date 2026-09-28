@@ -142,10 +142,14 @@ class EmotionGamingSystem:
                 
                 # Get the current frame safely
                 with self.frame_lock:
-                    if self.frame_for_analysis is not None:
-                        frame_copy = self.frame_for_analysis.copy()
-                    else:
-                        continue
+                    frame_copy = (
+                        self.frame_for_analysis.copy()
+                        if self.frame_for_analysis is not None
+                        else None
+                    )
+                if frame_copy is None:
+                    time.sleep(0.05)  # no frame yet: don't spin at 100% CPU
+                    continue
                 
                 try:
                     # Save frame temporarily
