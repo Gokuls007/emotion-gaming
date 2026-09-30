@@ -196,11 +196,12 @@ class EmotionGamingSystem:
             cv2.rectangle(overlay, (0, h-60), (w, h), (0, 0, 0), -1)
             frame = cv2.addWeighted(overlay, 0.7, frame, 0.3, 0)
             
-            cv2.putText(frame, self.status_message, (10, h-20),
+            # Hershey fonts are ASCII-only: drop emoji so they do not render as "????"
+            cv2.putText(frame, self.status_message.encode("ascii", "ignore").decode().strip(), (10, h-20),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 2)
         
         # Instructions
-        cv2.putText(frame, "Press Q to quit", (w - 200, h - 20),
+        cv2.putText(frame, "Press Q to quit", (w - 200, 140),
                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 1)
         
         return frame
